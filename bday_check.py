@@ -6,6 +6,7 @@ from datetime import date
 #generate current date
 today = date.today()
 current = (today.strftime("%m/%d/%y"))
+foo = (current[:-3])
 
 #prepare Sqlite3 connection
 conn = sqlite3.connect('birthday.db')
@@ -23,10 +24,20 @@ name_result = c.fetchall();
 #loop compares db dates to the current date
 
 i = 0
+
 for date in date_result:
-    if current[:-3] == date[0][:-3]:
+    if foo == date[0][:-3]:
         print("Happy birthday", name_result[i][0])
     i += 1
+i = 0
+for date in date_result:
+    if foo[:-3] == date[0][:-6]:
+        birt = int(foo[-2:])
+        current = date[0][:-3]
+        current = int(current[-2:])
+        print((current-birt),  " days until ", name_result[i][0], "'s birthday")
+    i += 1
+
 
 conn.commit()
 c.close

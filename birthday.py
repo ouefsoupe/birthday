@@ -2,7 +2,7 @@
 import sqlite3
 
 name = input("Name: ")
-birthday = input("Birthday(xx/x/xxxx or 01/23/02): ")
+birthday = input("Birthday(xx/xx/xx or 01/23/02): ")
 
 conn = sqlite3.connect('birthday.db')
 c = conn.cursor()
