@@ -32,10 +32,13 @@ for date in date_result:
 i = 0
 for date in date_result:
     if foo[:-3] == date[0][:-6]:
+        a = ''
         birt = int(foo[-2:])
         current = date[0][:-3]
         current = int(current[-2:])
-        print((current-birt),  " days until ", name_result[i][0], "'s birthday")
+        if(current-birt) > 1:
+            a = 's'
+        print((current-birt),  " day" + a + "  until ", name_result[i][0], "'s birthday")
     i += 1
 
 
